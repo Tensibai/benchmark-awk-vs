@@ -1,4 +1,4 @@
-# benchmark-awk-vs
+# benchmark-awk-vs [![Build Status](https://api.travis-ci.org/Tensibai/benchmark-awk-vs.svg?branch=master)](https://api.travis-ci.org/Tensibai/benchmark-awk-vs.svg)
 
 Let's make a challenge versus awk and other implementations.
 
