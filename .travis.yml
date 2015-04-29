@@ -4,7 +4,6 @@ before_script:
  - awk 'BEGIN{for (i=1;i<=10000000;i++) print (i%5?"miss":"hit"),i,"  third\t \tfourth"}' > ./input
 
 script: 
- - for s in ./awk/*.awk; do echo Testing $s; done
- - for s in ./awk/*.awk; do ./scripts/validate.sh awk -f $s ./input && time awk -f $s ./input > /dev/null || $s Failed to pass the test; done
-# - for s in ruby/*.rb; do ./script/validate.sh  
+ - for s in ./awk/*.awk; do ./scripts/validate.sh awk -f $s ./input && echo Timing for $s; time awk -f $s ./input > /dev/null || echo $s Failed to pass the test; done
+ - for s in ruby/*.rb; do ./script/validate.sh ruby $s ./input && echo Timing for $s; time ruby $s ./input > /dev/null || echo $s Failed to pass the test; done
 
