@@ -4,7 +4,7 @@ Let's make a challenge versus awk and other implementations.
 
 [Source idea was here on StackOverflow](http://stackoverflow.com/questions/29825821/what-is-the-performance-difference-between-gawk-and)
 
-Reported here as the original question from [![Ed Morton]()](http://stackoverflow.com/users/1745001/ed-morton?tab=profile) has been deleted from SO:
+Reported here as the original question from [![Ed Morton](http://stackoverflow.com/users/flair/1745001)](http://stackoverflow.com/users/1745001/ed-morton) has been deleted from SO:
 
 Given a 10 Million line input file created by this script:
 
