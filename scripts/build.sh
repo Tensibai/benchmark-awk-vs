@@ -28,7 +28,8 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
   git config user.name 'Tensibai'
   git config user.email ${GIT_EMAIL}
   echo ${GH_TOKEN} >> .git/credentials
-  git commit -am "Updating pages from travis build ${TRAVIS_BUILD_NUMBER}"
+  gir add .
+  git commit -m "Updating pages from travis build ${TRAVIS_BUILD_NUMBER}"
   git push origin
   rm .git/credentials
 else
