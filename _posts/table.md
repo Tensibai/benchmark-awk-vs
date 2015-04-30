@@ -1,3 +1,9 @@
+---
+layout: post
+title: Last build results
+author: Tensibai
+---
+
 Lang|script name|Validation status|real|user|sys
 ---|:---|:---:|:---:|:---:|:---:
 awk|original.awk|PASS|0:01.83|1.76|0.05
