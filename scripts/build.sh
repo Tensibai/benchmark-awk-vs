@@ -29,7 +29,7 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
   git config user.email ${GIT_EMAIL}
   git config credential.helper "store --file=.git/credentials"
   git config push.default simple
-  echo ${GH_TOKEN} >> .git/credentials
+  echo "https://${GH_TOKEN}:@github.com" >> .git/credentials
   git add .
   git commit -m "Updating pages from travis build ${TRAVIS_BUILD_NUMBER}"
   git push origin
