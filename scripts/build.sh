@@ -1,7 +1,8 @@
 #!/bin/bash
 #set -ev
 set -e
-out="./results/table.md"
+out="./results/$(date +"%Y-%m-%d")-result-${TRAVIS_BUILD_NUMBER}.md"
+echo "---\nlayout: post\nauthor: Travis CI\ntitle: Results for build ${TRAVIS_BUILD_NUMBER}\n---\n\n"
 if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
   echo "Lang|script name|Validation status|real|user|sys" > $out
   echo "---|:---|:---:|:---:|:---:|:---:" >> $out
@@ -19,7 +20,13 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
       done
     fi 
   done   
+  echo "Final result matrix:"
   cat $out
+  git clone --branch gh-pages "https://github.com/${TRAVIS_REPO_SLUG}"  site
+  cp $out site/_posts
+  cd site
+  git commit -am "Updating pages from travis build ${TRAVIS_BUILD_NUMBER}"
+  git push origin
 else
  echo "Pull request"
 fi

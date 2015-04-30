@@ -11,3 +11,7 @@ before_script:
 
 script: 
  - ./scripts/build.sh
+
+env:
+  global:
+    secure: SqWnMIBQFfgQ3v8PsIK10nU3YeRxPH62PLOb8n4/hpH9MDNkGl4D9nM+pUWQHhIG/CzroRWqr+IVn6kl9HEVrb1McetelLGQcaS9d3sD6Pt1UYiNQayWlxaedrEt7+YJwN+wyUsJ2B7ixMPPP7c43Uxa+tZ/wLk0TH8foRWOVT4=
