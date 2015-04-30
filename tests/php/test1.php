@@ -1,6 +1,6 @@
 <?php
 
-$fd=fopen('file', 'r');
+$fd=fopen($argv[1], 'r');
 while($line = fgets($fd)){
     if(preg_match("/hit \d*0 /", $line)){
         $f=preg_split("/\s+/", $line);
