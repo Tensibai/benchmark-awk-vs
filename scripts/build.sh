@@ -25,8 +25,12 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
   git clone --branch gh-pages "https://github.com/${TRAVIS_REPO_SLUG}"  site
   cp $out site/_posts
   cd site
+  git config user.name 'Tensibai'
+  git config user.email ${GIT_EMAIL}
+  echo ${GH_TOKEN} >> .git/credentials
   git commit -am "Updating pages from travis build ${TRAVIS_BUILD_NUMBER}"
   git push origin
+  rm .git/credentials
 else
  echo "Pull request"
 fi
