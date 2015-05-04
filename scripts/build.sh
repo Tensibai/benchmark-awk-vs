@@ -13,7 +13,7 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
       if [[ ! -x ./tests/launcher-${tlang}.sh ]]; then echo "No launcher for $tlang, skipping"; continue; fi
       for t in $d/*; do
         echo -n " - Testing $t"
-        echo -n "${tlang}|$($tlang --version)|${t##*/}|" >> $out
+        echo -n "${tlang}|$($tlang --version | head -1 )|${t##*/}|" >> $out
         echo -n "$(./scripts/validate.sh ./tests/launcher-${tlang}.sh $t)" >> $out
         /usr/bin/time -ao $out -f "|%E|%U|%S" ./tests/launcher-${tlang}.sh $t > /dev/null 
         echo " done."
