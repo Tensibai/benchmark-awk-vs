@@ -5,6 +5,9 @@ addons:
     packages:
      - time
      - php5-cli
+     - mawk
+     - gawk
+     - nawk
 
 before_script:
  - awk 'BEGIN{for (i=1;i<=10000000;i++) print (i%5?"miss":"hit"),i,"  third\t \tfourth"}' > ./input

@@ -4,8 +4,8 @@ set -e
 out="./results/$(date +"%Y-%m-%d")-result-${TRAVIS_BUILD_NUMBER}.md"
 echo "---\nlayout: post\nauthor: Travis CI\ntitle: Results for build ${TRAVIS_BUILD_NUMBER}\n---\n\n"
 if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
-  echo "Lang|script name|Validation status|real|user|sys" > $out
-  echo "---|:---|:---:|:---:|:---:|:---:" >> $out
+  echo "Lang|version|script name|Validation status|real|user|sys" > $out
+  echo "---|:---|:---|:---:|:---:|:---:|:---:" >> $out
   for d in ./tests/*; do
     if [ -d $d ]; then 
       tlang=${d##./tests/}
@@ -13,7 +13,7 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
       if [[ ! -x ./tests/launcher-${tlang}.sh ]]; then echo "No launcher for $tlang, skipping"; continue; fi
       for t in $d/*; do
         echo -n " - Testing $t"
-        echo -n "${tlang}|${t##*/}|" >> $out
+        echo -n "${tlang}|$($tlang --version)|${t##*/}|" >> $out
         echo -n "$(./scripts/validate.sh ./tests/launcher-${tlang}.sh $t)" >> $out
         /usr/bin/time -ao $out -f "|%E|%U|%S" ./tests/launcher-${tlang}.sh $t > /dev/null 
         echo " done."
