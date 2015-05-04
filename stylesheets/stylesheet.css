@@ -90,7 +90,7 @@ header h2 {
 }
 
 .inner {
-  width: 620px;
+  width: 820px;
   margin: 0 auto;
 }
 
@@ -218,7 +218,7 @@ em {
 
 table {
   width: 100%;
-  border: 1px solid #ebebeb;
+  border: 2px solid #3a3a3a;
 }
 
 th {
@@ -226,7 +226,7 @@ th {
 }
 
 td {
-  border: 1px solid #ebebeb;
+  border: 1px solid #3a3a3a;
   text-align: center; 
   font-weight: 300;
 }

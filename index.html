@@ -6,7 +6,7 @@ title: Results of awk benchmark
 <!-- <h1>List of posts</h1> -->
 <dl class="posts">
   {% for post in site.posts %}
-    <dt><a class="post-link" href="{{ post.url }}">{{ post.title }}</a>
+    <dt><a class="post-link" href="{{site.github.url}}/{{ post.url }}">{{ post.title }}</a>
     <p class="authorline">{{ post.date | date: "%b %-d, %Y" }}{% if post.author %} • {{ post.author }}{% endif %}</p>
     </dt>
     <dd>{{ post.excerpt }}</dd><br/>
