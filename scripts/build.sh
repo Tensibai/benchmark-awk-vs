@@ -2,7 +2,7 @@
 #set -ev
 set -e
 out="./results/$(date +"%Y-%m-%d")-result-${TRAVIS_BUILD_NUMBER}.md"
-echo "---\nlayout: post\nauthor: Travis CI\ntitle: Results for build ${TRAVIS_BUILD_NUMBER}\n---\n\n"
+echo "---\nlayout: post\nauthor: Travis CI\ntitle: Results for build ${TRAVIS_BUILD_NUMBER}\n---\n\n" >> $out
 if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
   echo "Lang|version|script name|Validation status|real|user|sys" > $out
   echo "---|:---|:---|:---:|:---:|:---:|:---:" >> $out
