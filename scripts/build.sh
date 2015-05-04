@@ -36,4 +36,15 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
   rm .git/credentials
 else
  echo "Pull request"
+  for d in ./tests/*; do
+    if [ -d $d ]; then
+      tlang=${d##./tests/}
+       echo "Testing $tlang scripts"
+      if [[ ! -x ./tests/launcher-${tlang}.sh ]]; then echo "No launcher for $tlang, skipping"; continue; fi
+      for t in $d/*; do
+        echo -n " - Testing $t : "
+        echo -n "$(./scripts/validate.sh ./tests/launcher-${tlang}.sh $t)"
+      done
+    fi
+  done
 fi
